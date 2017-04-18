@@ -1,5 +1,7 @@
 # I am plotting the training log using the following script,
 # it requires matplotlib to be installed
+# DO first:
+# cat "log.txt" | grep avg, > log_loss.txt
 import argparse
 import sys
 import matplotlib.pyplot as plt
@@ -12,11 +14,6 @@ def main(argv):
     parser.add_argument(
         "log_file",
         help="path to log file"
-    )
-
-    parser.add_argument(
-        "option",
-        help="0 -> loss vs iter"
     )
 
     args = parser.parse_args()
