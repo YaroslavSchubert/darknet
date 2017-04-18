@@ -28,13 +28,18 @@ def main(argv):
     numbers = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'}
 
     iters = []
+    avg_loss = []
     loss = []
+
     for line in lines:
         if line[0] in numbers:
             line_args = line.split(" ")
             iters.append(int(line_args[0][:-1]))
-            loss.append(float(line_args[2]))
-    plt.plot(iters, loss)
+            loss.append(float(line_args[1].replace(',', '')))
+            avg_loss.append(float(line_args[2]))
+
+    plt.plot(iters, loss, linewidth=0.5)
+    plt.plot(iters, avg_loss, linewidth=2.0)
     plt.xlabel('iters')
     plt.ylabel('avg loss')
     plt.grid()
